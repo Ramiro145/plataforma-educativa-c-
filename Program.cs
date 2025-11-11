@@ -18,6 +18,11 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // 🔹 Cargar configuracion
+
+builder.Configuration
+    .AddJsonFile("appsettings.json")
+    .AddEnvironmentVariables(); // 👈 añade variables del sistema
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
