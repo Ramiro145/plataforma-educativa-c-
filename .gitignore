@@ -18,3 +18,7 @@ x86/
 ## Visual Studio cache/options directory
 .vscode/
 .idea/
+
+
+
+Properties/launchSettings.json

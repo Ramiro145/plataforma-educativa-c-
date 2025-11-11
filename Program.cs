@@ -21,7 +21,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration
     .AddJsonFile("appsettings.json")
-    .AddEnvironmentVariables(); // 👈 añade variables del sistema
+    .AddEnvironmentVariables() // 👈 añade variables del sistema
+    .AddUserSecrets<Program>(optional: true);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
